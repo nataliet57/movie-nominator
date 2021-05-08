@@ -85,11 +85,6 @@ const App = () => {
         <MovieListHeading heading='Nominations' />
       </div>
       <div className='row'>
-        <MovieList
-          movies={favourites}
-          handleFavouritesClick={removeNominatedMovie}
-          favouriteComponent={RemoveFavourites}
-        />
       </div>
     </div>
   );
