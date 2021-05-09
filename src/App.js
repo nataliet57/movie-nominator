@@ -6,6 +6,7 @@ import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
+import ResultCard from './components/ResultCard';
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
@@ -42,9 +43,11 @@ const App = () => {
 	};
 
 	const addFavouriteMovie = (movie) => {
-		const newFavouriteList = [...favourites, movie];
-		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
+		if (favourites.length < 5) {
+			const newFavouriteList = [...favourites, movie];
+			setFavourites(newFavouriteList);
+			saveToLocalStorage(newFavouriteList);
+		}
 	};
 
 	const removeFavouriteMovie = (movie) => {
@@ -62,12 +65,15 @@ const App = () => {
 				<MovieListHeading heading='Movies' />
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
 			</div>
-			<div className='row'>
-				<MovieList
-					movies={movies}
-					handleFavouritesClick={addFavouriteMovie}
-					favouriteComponent={AddFavourites}
-				/>
+			<div>
+				{movies.map((movie) => (
+          <ResultCard
+            movie={movie}
+            watchList={favourites}
+            handleFavouritesClick={addFavouriteMovie}
+            favouriteComponent={AddFavourites}
+          />
+        ))}
 			</div>
 			<div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Favourites' />
