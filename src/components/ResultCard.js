@@ -59,9 +59,7 @@ const ResultCard = ({ movie, handleFavouritesClick, watchList, props }) => {
           >
             <AddFavourite />
           </AddButton>
-          <Title>
-          {movie.Title}
-          </Title>
+          <Title>{movie.Title}</Title>
         </Card>
         <Year>{movie.Year}</Year>
         <p>{movie.Rated}</p>
