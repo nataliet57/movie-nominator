@@ -1,8 +1,7 @@
 body {
-	background: #ffffff;
+	background: #fcf9f1;
 	color: #141414;
 }
-
 .movie-app > .row {
 	overflow-x: auto;
 	flex-wrap: nowrap;
@@ -25,11 +24,58 @@ body {
 .overlay {
 	position: absolute;
 	background: rgba(0, 0, 0, 0.8);
-	width: 100%;
+	width: 100px;
 	transition: 0.5s ease;
 	opacity: 0;
 	bottom: 0;
 	font-size: 20px;
 	padding: 20px;
 	text-align: center;
+}
+
+.search {
+	width: 35%;
+	display: flex;
+	flex-direction: column;
+}
+
+.favourites {
+	height: 100%;
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+}
+
+.page {
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.movieList {
+	display: flex;
+	flex-direction: column;
+	padding-left: 40px;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #111;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: #004c3f;
 }

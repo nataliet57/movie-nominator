@@ -18,7 +18,7 @@ const Card = styled.div`
 const Title = styled.div`
   display: inline-block;
   margin-left: 10px;
-  font-size: 24px;
+  font-size: 16px;
   justify-content: centre;
 `
 

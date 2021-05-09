@@ -7,6 +7,8 @@ import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
 import ResultCard from './components/ResultCard';
+import { SearchContainer, Subtitle, Results } from './styles'
+
 
 const App = () => {
 	const [movies, setMovies] = useState([]);
@@ -65,32 +67,43 @@ const App = () => {
 	};
 
 	return (
-		<div className='container-fluid movie-app'>
-			<div className='row d-flex align-items-center mt-4 mb-4'>
-				<MovieListHeading heading='Movies' />
-				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+		<div className='container-fluid movie-app flex-container'>
+			<div className='page'>
+				<div className='search'>
+					<div className='row d-flex align-items-center mt-4'>
+						<MovieListHeading heading='The Shoppies' />
+						<Subtitle>Search below to nominate your top 5 favourite movies. </Subtitle>
+					</div>
+					<SearchContainer>
+						<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+					</SearchContainer>
+					<Results>
+						{movies.map((movie) => (
+							<ResultCard
+								movie={movie}
+								watchList={favourites}
+								handleFavouritesClick={addFavouriteMovie}
+								favouriteComponent={AddFavourites}
+							/>
+						))}
+					</Results>
 			</div>
-			<div>
-				{movies.map((movie) => (
-          <ResultCard
-            movie={movie}
-            watchList={favourites}
-            handleFavouritesClick={addFavouriteMovie}
-            favouriteComponent={AddFavourites}
-          />
-        ))}
-			</div>
-			<div className='row d-flex align-items-center mt-4 mb-4'>
-				<MovieListHeading heading='Favourites' />
-			</div>
-			<div className='row'>
-				<MovieList
-					movies={favourites}
-					handleFavouritesClick={removeFavouriteMovie}
-					favouriteComponent={RemoveFavourites}
-				/>
+			<div class="split right">
+				<div className = 'favourites'>
+					<div>
+						<MovieListHeading heading='Nominations' color="#fff"/>
+					</div>
+					<div className='movieList'>
+						<MovieList
+							movies={favourites}
+							handleFavouritesClick={removeFavouriteMovie}
+							favouriteComponent={RemoveFavourites}
+						/>
+					</div>
+				</div>
 			</div>
 		</div>
+	</div>
 	);
 };
 
