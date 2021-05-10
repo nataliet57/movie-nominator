@@ -14,6 +14,7 @@ const App = () => {
 	const [movies, setMovies] = useState([]);
 	const [favourites, setFavourites] = useState([]);
 	const [searchValue, setSearchValue] = useState('');
+	const [movieData, setMovieData] = useState([]);
 
 	const getMovieRequest = async (searchValue) => {
 
@@ -28,7 +29,9 @@ const App = () => {
 
 		if (responseJson.Search) {
 			setMovies(responseJson.Search);
+			setMovieData(responseDataJson)
 		}
+		console.log(responseDataJson)
 	};
 
 	useEffect(() => {
@@ -72,7 +75,7 @@ const App = () => {
 				<div className='search'>
 					<div className='row d-flex align-items-center mt-4'>
 						<MovieListHeading heading='The Shoppies' />
-						<Subtitle>Search below to nominate your top 5 favourite movies. </Subtitle>
+						<Subtitle>Search below to nominate your top 5 favourite <br /> movies + shows! </Subtitle>
 					</div>
 					<SearchContainer>
 						<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
