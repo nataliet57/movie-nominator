@@ -1,1 +1,1 @@
-Source code for https://www.youtube.com/watch?v=jc9_Bqzy2YQ&feature=youtu.be 
+Shopify Frontend/UI Application using omdB API to nominate your 5 favourite movies
